@@ -1,0 +1,74 @@
+<div class="register_container">
+  <form
+    class="register_wrapper"
+    #registerForm="ngForm"
+    (ngSubmit)="register()"
+    autocomplete="off"
+  >
+    <h3 class="register-title text-center">Register</h3>
+    <hr class="line_register" />
+    <div class="form-group">
+      <label for="firstName" class="labels_register"
+        >Enter Your First Name</label
+      >
+      <input
+        type="text"
+        class="form-control ng-untouched ng-pristine ng-invalid"
+        name="firstName"
+        [(ngModel)]="model.firstName"
+        placeholder="First Name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="lastName" class="labels_register">Enter Your Last Name</label>
+      <input
+        type="text"
+        class="form-control ng-untouched ng-pristine ng-invalid"
+        name="lastName"
+        [(ngModel)]="model.lastName"
+        placeholder="Last Name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email" class="labels_register">Enter Your Email</label>
+      <input
+        type="email"
+        class="form-control ng-untouched ng-pristine ng-invalid"
+        name="email"
+        [(ngModel)]="model.email"
+        placeholder="Email"
+        pattern="[A-Za-z0-9.%-]+@[A-Za-z0-9.%-]+\.[a-z]{2,3}"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="password" class="labels_register">Enter Your Password</label>
+      <input
+        type="password"
+        class="form-control ng-untouched ng-pristine ng-invalid"
+        name="password"
+        [(ngModel)]="model.password"
+        placeholder="Password"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+        required
+      />
+    </div>
+    <div class="form-group text-center">
+      <button
+        class="btn btn-outline-success"
+        type="submit"
+        [disabled]="registerForm.invalid || emailAlredyExist != ''"
+      >
+        Register
+      </button>
+      <button class="btn btn-outline-success" type="button" (click)="cancel()">
+        Cancel
+      </button>
+      <div *ngIf="emailAlredyExist != ''" class="alert alert-danger">
+        {{ emailAlredyExist }}
+      </div>
+    </div>
+  </form>
+</div>

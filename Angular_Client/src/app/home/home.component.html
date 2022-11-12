@@ -1,0 +1,21 @@
+<div *ngIf="(accountService.currentUser$ | async) === null" class="container mt-5">
+  <div *ngIf="!registerMode"  style ='text-align: center;'>
+   <h1>Get Weather Info</h1>
+   <p class="lead">All You need to do is sign up!</p>
+   <div class="text-center">
+    <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
+   </div>
+  </div>
+
+  <div *ngIf="registerMode"  class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+       <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div *ngIf="accountService.currentUser$ | async" >
+  <h1 >Welcome To the App!</h1>
+</div>

@@ -1,0 +1,41 @@
+<div class="main_container">
+  <div class="weather_wrapper">
+    <form #getWeatherForm="ngForm" (ngSubmit)="getWeather()" autocomplete="off">
+      <h2 class="search-text text-center">Enter City Name</h2>
+      <div class="form-group ng-untouched ng-pristine ng-invalid">
+        <input
+          type="text"
+          class="form-control"
+          name="City Name"
+          [(ngModel)]="model.cityName"
+          placeholder="City Name"
+          minlength="3"
+          required
+        />
+      </div>
+      <div class="form-group text-center">
+        <button class="btn btn-outline-success" type="submit" [disabled]="!getWeatherForm.form.valid">Search</button>
+      </div>
+      <div *ngIf="invalidCityName != ''" class="alert alert-danger">
+        {{invalidCityName}} 
+      </div>   
+    </form>
+  </div>
+  <div class="card" *ngIf="cities">
+    <div *ngFor="let item of cities">
+      <div class="photo-card">
+        <h5 class="card-title">Date: {{ item.date | customPipes }}</h5>
+        <p class="card-text">Conditions {{ item.weatherCondition }}</p>
+        <p class="card-text">Temperature: {{ item.temperature }}</p>
+        <p class="card-text">Feels like {{ item.feelsLike }}</p>
+        <p class="card-text">
+          Maximum Temperature {{ item.maximumTemperature }}
+        </p>
+        <p class="card-text">
+          Minimum Temperature: {{ item.minimumTemperature }}
+        </p>
+        <p class="card-text">Humidity: {{ item.humidity }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+.main_container {
+  margin: 5rem 30rem 1rem 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.weather_wrapper {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #576574;
+  border-radius: 10px;
+}
+.search-text {
+  color: #079992;
+}
+
+.form-control {
+  margin: 1rem;
+  width: 30rem;
+  height: 2.5rem;
+}
+.btn {
+  color: #079992;
+  border-color: #079992;
+}
+.btn:hover {
+  background-color: #079992;
+  color: #2c3e50;
+}
+.form-control {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: #576574;
+  border-radius: 10px;
+}
+
+.photo-card {
+  width: max-content;
+  padding: 1rem;
+  border: 1px #2c3e50;
+  display: flex;
+  margin: 1rem 0rem 0rem 1rem;
+  justify-content: center;
+  background-color: #079992;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.alert {
+  margin: 10px;
+  text-align: center;
+}
